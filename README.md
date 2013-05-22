@@ -12,7 +12,7 @@ Example dependency config:
 ```xml
 <dependency>
     <groupId>com.greenbird.mule</groupId>
-    <artifactId>greenbird-mule-test-utils</artifactId>
+    <artifactId>greenbird-mule-test-tools</artifactId>
     <version>1.0-SNAPSHOT</version>
     <scope>test</scope>
 </dependency>
@@ -49,10 +49,10 @@ MuleMessage messageFromQueue = request("vm://test-queue");
 [Apache 2.0]:                 http://www.apache.org/licenses/LICENSE-2.0.html
 [DSL]:                        http://en.wikipedia.org/wiki/Domain-specific_language
 [functional test case]:       http://www.mulesoft.org/documentation/display/current/Functional+Testing
-[issues]:                     https://github.com/greenbird/mule-test-utils/issues
-[download]:                   https://oss.sonatype.org/content/repositories/snapshots/com/greenbird/mule/greenbird-mule-test-utils/1.0-SNAPSHOT/
+[issues]:                     https://github.com/greenbird/mule-test-tools/issues
+[download]:                   https://oss.sonatype.org/content/repositories/snapshots/com/greenbird/mule/greenbird-mule-test-tools/1.0-SNAPSHOT/
 [Maven]:                      http://maven.apache.org/
 [Mule ESB]:                   http://www.mulesoft.org/
 [resource pattern]:           http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/core/io/support/PathMatchingResourcePatternResolver.html
-[snapshot repository]:        https://oss.sonatype.org/content/repositories/snapshots/com/greenbird/mule/greenbird-mule-test-utils
+[snapshot repository]:        https://oss.sonatype.org/content/repositories/snapshots/com/greenbird/mule/greenbird-mule-test-tools
 
