@@ -16,7 +16,7 @@
 
 package com.greenbird.test.mule;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -48,7 +48,7 @@ public class GreenbirdMuleFunctionalTestCaseTest extends GreenbirdMuleFunctional
 
     @Test
     public void load_resourceNotFound_exceptionWrappedInTestException() {
-        exceptionExpectation.expect(GreeenbirdTestException.class);
+        exceptionExpectation.expect(GreenbirdTestException.class);
         load("unknown");
     }
 
@@ -61,13 +61,13 @@ public class GreenbirdMuleFunctionalTestCaseTest extends GreenbirdMuleFunctional
 
     @Test
     public void dispatch_muleTrowsException_exceptionWrappedInTestException() {
-        exceptionExpectation.expect(GreeenbirdTestException.class);
+        exceptionExpectation.expect(GreenbirdTestException.class);
         dispatch("unknown://address", "TEST");
     }
 
     @Test
     public void request_muleTrowsException_exceptionWrappedInTestException() {
-        exceptionExpectation.expect(GreeenbirdTestException.class);
+        exceptionExpectation.expect(GreenbirdTestException.class);
         dispatch("vm://test/in", "TEST");
         request("unknown://address");
     }
@@ -80,7 +80,7 @@ public class GreenbirdMuleFunctionalTestCaseTest extends GreenbirdMuleFunctional
     @Test
     public void flow_muleThrowsException_exceptionWrappedInTestException() {
         muleFails = true;
-        exceptionExpectation.expect(causedBy(GreeenbirdTestException.class, muleException));
+        exceptionExpectation.expect(causedBy(GreenbirdTestException.class, muleException));
         flow("TestFlow");
     }
 

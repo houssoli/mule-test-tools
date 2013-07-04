@@ -16,7 +16,7 @@
 
 package com.greenbird.test.coverage;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -37,7 +37,7 @@ public class CoverageUtilTest {
 
     @Test
     public void callPrivateDefaultConstructor_classWithoutDefaultPrivateConstructor_exceptionIsThrown() {
-        expectedException.expect(GreeenbirdTestException.class);
+        expectedException.expect(GreenbirdTestException.class);
         expectedException.expectMessage("NoSuchMethodException");
         CoverageUtil.callPrivateDefaultConstructor(TestClassWithoutDefaultPrivateConstructor.class);
     }

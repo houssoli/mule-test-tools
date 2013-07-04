@@ -16,16 +16,16 @@
 
 package com.greenbird.test;
 
-public class GreeenbirdTestException extends RuntimeException {
-    public GreeenbirdTestException(String message) {
+public class GreenbirdTestException extends RuntimeException {
+    public GreenbirdTestException(String message) {
         super(message);
     }
 
-    public GreeenbirdTestException(Throwable cause) {
+    public GreenbirdTestException(Throwable cause) {
         super(cause);
     }
 
-    public GreeenbirdTestException(String message, Throwable cause) {
+    public GreenbirdTestException(String message, Throwable cause) {
         super(message, cause);
     }
 }

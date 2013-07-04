@@ -16,7 +16,7 @@
 
 package com.greenbird.test.util;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 import org.mule.util.IOUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.ResourcePatternResolver;
@@ -38,7 +38,7 @@ public class ResourceLoader {
             URL resourceUrl = resourcePatternResolver.getResource(location).getURL();
             return IOUtils.toString(resourceUrl, "UTF-8");
         } catch (IOException e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 }

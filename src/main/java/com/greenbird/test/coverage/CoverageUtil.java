@@ -16,7 +16,7 @@
 
 package com.greenbird.test.coverage;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 
 import java.lang.reflect.Constructor;
 
@@ -31,7 +31,7 @@ public class CoverageUtil {
             constructor.setAccessible(true);
             constructor.newInstance();
         } catch (Exception e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 }

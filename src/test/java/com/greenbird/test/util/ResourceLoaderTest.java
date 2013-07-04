@@ -16,7 +16,7 @@
 
 package com.greenbird.test.util;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -36,7 +36,7 @@ public class ResourceLoaderTest {
 
     @Test
     public void load_resourceNotFound_exceptionWrappedInTestException() {
-        exceptionExpectation.expect(GreeenbirdTestException.class);
+        exceptionExpectation.expect(GreenbirdTestException.class);
         ResourceLoader.load("unknown");
     }
 

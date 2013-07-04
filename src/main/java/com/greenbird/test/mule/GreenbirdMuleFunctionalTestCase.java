@@ -16,7 +16,7 @@
 
 package com.greenbird.test.mule;
 
-import com.greenbird.test.GreeenbirdTestException;
+import com.greenbird.test.GreenbirdTestException;
 import com.greenbird.test.util.ResourceLoader;
 import org.junit.Before;
 import org.mule.api.MuleEvent;
@@ -48,7 +48,7 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
         try {
             client().dispatch(address, payload, null);
         } catch (MuleException e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
         try {
             return client().request(address, getMessageRequestTimeout());
         } catch (MuleException e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
         try {
             return (Flow) getFlowConstruct(name);
         } catch (Exception e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 
@@ -72,7 +72,7 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
         try {
             return getTestEvent(payload);
         } catch (Exception e) {
-            throw new GreeenbirdTestException(e);
+            throw new GreenbirdTestException(e);
         }
     }
 
