@@ -1,6 +1,12 @@
 # mule-test-tools
 Library that simplifies testing of [Mule ESB] application flows.
 
+## Table of contents
+- [License](#license)
+- [Obtain](#obtain)
+- [Usage](#usage)
+- [History](#history)
+
 ## License
 [Apache 2.0]
 
@@ -47,14 +53,19 @@ dispatch("vm://test-queue", load("/large-payload.xml"));
 
 MuleMessage messageFromQueue = request("vm://test-queue");
 ```
- 
+
+## History
+- 1.0.0: Initial release.
+- 1.1.0-SNAPSHOT: Moved non-mule spesific utilities in this project to the [greenbird-test-tools] project. 
+
+
 [Apache 2.0]:                 http://www.apache.org/licenses/LICENSE-2.0.html
 [DSL]:                        http://en.wikipedia.org/wiki/Domain-specific_language
 [functional test case]:       http://www.mulesoft.org/documentation/display/current/Functional+Testing
 [issues]:                     https://github.com/greenbird/mule-test-tools/issues
 [download]:                   http://search.maven.org/#search|ga|1|greenbird-mule-test-tools
+[greenbird-test-tools]:       https://github.com/greenbird/greenbird-test-tools
 [Maven]:                      http://maven.apache.org/
 [Mule ESB]:                   http://www.mulesoft.org/
 [resource pattern]:           http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/core/io/support/PathMatchingResourcePatternResolver.html
 [snapshot repository]:        https://oss.sonatype.org/content/repositories/snapshots/com/greenbird/mule/greenbird-mule-test-tools
-
