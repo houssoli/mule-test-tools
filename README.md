@@ -1,7 +1,9 @@
 # mule-test-tools
 Library that simplifies testing of [Mule ESB] application flows.
 
-Part of the [greenbird] Open Source [projects].
+Part of the [greenbird] Open Source Java [projects].
+
+Bugs, feature suggestions and help requests can be filed with the [issue-tracker].
 
 [![Build Status][build-badge]][build-link]
 
@@ -69,7 +71,7 @@ MuleMessage messageFromQueue = request("vm://test-queue");
 [DSL]:                  http://en.wikipedia.org/wiki/Domain-specific_language
 [functional test case]: http://www.mulesoft.org/documentation/display/current/Functional+Testing
 [greenbird]:            http://greenbird.com/
-[issues]:               https://github.com/greenbird/mule-test-tools/issues
+[issue-tracker]:        https://github.com/greenbird/mule-test-tools/issues
 [download]:             http://search.maven.org/#search|ga|1|greenbird-mule-test-tools
 [greenbird-test-tools]: https://github.com/greenbird/greenbird-test-tools
 [Maven]:                http://maven.apache.org/
