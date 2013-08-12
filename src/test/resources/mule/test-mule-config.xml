@@ -33,4 +33,9 @@
         <inbound-endpoint address="vm://test/in"/>
         <outbound-endpoint address="vm://test/out"/>
     </flow>
+
+    <flow name="TestSynchronousFlow">
+        <inbound-endpoint address="vm://test/synchronous/in" exchange-pattern="request-response"/>
+        <set-variable variableName="tmp" value="tmp"/>
+    </flow>
 </mule>

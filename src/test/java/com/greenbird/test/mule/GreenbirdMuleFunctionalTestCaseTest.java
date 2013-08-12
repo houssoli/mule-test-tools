@@ -20,6 +20,7 @@ import com.greenbird.test.GreenbirdTestException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mule.api.MuleMessage;
 import org.mule.api.construct.FlowConstruct;
 
 import static com.greenbird.test.matchers.GreenbirdMatchers.causedBy;
@@ -63,6 +64,18 @@ public class GreenbirdMuleFunctionalTestCaseTest extends GreenbirdMuleFunctional
     public void dispatch_muleTrowsException_exceptionWrappedInTestException() {
         exceptionExpectation.expect(GreenbirdTestException.class);
         dispatch("unknown://address", "TEST");
+    }
+
+    @Test
+    public void send_success_payloadReturned() {
+        MuleMessage testMessage = send("vm://test/synchronous/in", "TEST");
+        assertThat(testMessage.getPayload().toString(), is("TEST"));
+    }
+
+    @Test
+    public void send_muleTrowsException_exceptionWrappedInTestException() {
+        exceptionExpectation.expect(GreenbirdTestException.class);
+        send("unknown://test/synchronous/in", "TEST");
     }
 
     @Test

@@ -29,6 +29,7 @@ import org.mule.tck.junit4.FunctionalTestCase;
 
 public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase {
     public static final int DEFAULT_MESSAGE_REQUEST_TIMEOUT = 1000;
+    public static final int DEFAULT_MESSAGE_SENDING_TIMEOUT = 1000;
     private MuleClient muleClient;
 
     @Before
@@ -47,6 +48,14 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
     protected void dispatch(String address, Object payload) {
         try {
             client().dispatch(address, payload, null);
+        } catch (MuleException e) {
+            throw new GreenbirdTestException(e);
+        }
+    }
+
+    protected MuleMessage send(String address, Object payload) {
+        try {
+            return client().send(address, payload, null, getMessageSendingTimeout());
         } catch (MuleException e) {
             throw new GreenbirdTestException(e);
         }
@@ -82,5 +91,9 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
 
     protected int getMessageRequestTimeout() {
         return DEFAULT_MESSAGE_REQUEST_TIMEOUT;
+    }
+
+    protected int getMessageSendingTimeout() {
+        return DEFAULT_MESSAGE_SENDING_TIMEOUT;
     }
 }

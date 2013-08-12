@@ -45,6 +45,7 @@ following methods:
 * `MuleClient client()`: Get an initialized client.
 * `String load(String location)`: Load a resource using a Spring style [resource pattern].
 * `void dispatch(String address, Object payload)`: Dispatch a message containing the given payload to the given address.
+* `MuleMessage send(String address, Object payload)`: Send a message containing the given payload synchronously to the given address and return the response.
 * `MuleMessage request(String address)`: Pop a message off the given address or get null if the request times out. Timeout can be changed from default by overriding `int getMessageRequestTimeout()`.
 * `Flow flow(String name)`: Get the flow with the given name.
 * `MuleEvent event(Object payload)`: Build a test event containing the given payload.
@@ -53,16 +54,18 @@ following methods:
 Some usage examples:
 
 ```java
-MuleEvent responseEvent = flow("testFlow").process(event("Test payload"));
+MuleMessage messageFromRequestResponseEndpoint = send("vm\://test-synchronous-endpoint", "Test payload");
+
+MuleEvent responseEventFromDirectFlowCall = flow("testFlow").process(event("Test payload"));
 
 dispatch("vm://test-queue", load("/large-payload.xml"));
 
-MuleMessage messageFromQueue = request("vm://test-queue");
+MuleMessage messageFromQueue = request("vm\://test-queue");
 ```
 
 ## History
 - [1.0.0]: Initial release.
-- [1.1.0-SNAPSHOT]: Moved non-mule spesific utilities in this project to the [greenbird-test-tools] project. 
+- [1.1.0-SNAPSHOT]: Moved non-mule specific utilities in this project to the [greenbird-test-tools] project. Added support for synchronous sending. 
 
 [1.0.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=2&state=closed
 [1.1.0-SNAPSHOT]:       https://github.com/greenbird/mule-test-tools/issues?milestone=1&state=closed
