@@ -98,18 +98,35 @@ public class GreenbirdMuleFunctionalTestCaseTest extends GreenbirdMuleFunctional
     }
 
     @Test
-    public void event_normal_returnsEventContainingGivenPayload() throws Exception {
+    public void event_normal_eventContainingGivenPayloadReturned() throws Exception {
         assertThat(event("TEST").getMessage().getPayloadAsString(), is("TEST"));
     }
 
     @Test
-    public void bean_beanFound_returnsBeanFromSpringContext() throws Exception {
+    public void bean_beanFoundByName_beanReturned() {
         assertThat(bean("testSpringComponent"), is(notNullValue()));
     }
 
     @Test
-    public void bean_beanNotFound_returnsNull() throws Exception {
+    public void bean_beanNotFoundByName_nullReturned() {
         assertThat(bean("unknown"), is(nullValue()));
+    }
+
+    @Test
+    public void bean_beanFoundByType_beanReturned() {
+        assertThat(bean(TestSpringComponent.class), is(notNullValue()));
+    }
+
+    @Test
+    public void bean_moreThanOneBeanFoundByType_beanReturned() {
+        exceptionExpectation.expect(GreenbirdTestException.class);
+        exceptionExpectation.expectMessage("More than one object of type");
+        bean(DuplicateTestSpringComponent.class);
+    }
+
+    @Test
+    public void bean_beanNotFoundByType_nullReturned() {
+        assertThat(bean(String.class), is(nullValue()));
     }
 
     @Override

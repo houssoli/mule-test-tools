@@ -50,6 +50,7 @@ following methods:
 * `Flow flow(String name)`: Get the flow with the given name.
 * `MuleEvent event(Object payload)`: Build a test event containing the given payload.
 * `<T> T bean(String componentName)`: Get the component with the given name from the Mule registry.
+* `<T> T bean(Class<T> type)`: Get the component with the given type from the Mule registry.
 
 Some usage examples:
 

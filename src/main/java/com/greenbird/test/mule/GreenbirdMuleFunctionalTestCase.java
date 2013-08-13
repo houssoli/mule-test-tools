@@ -23,6 +23,7 @@ import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
 import org.mule.api.MuleMessage;
 import org.mule.api.client.MuleClient;
+import org.mule.api.registry.RegistrationException;
 import org.mule.client.DefaultLocalMuleClient;
 import org.mule.construct.Flow;
 import org.mule.tck.junit4.FunctionalTestCase;
@@ -87,6 +88,14 @@ public abstract class GreenbirdMuleFunctionalTestCase extends FunctionalTestCase
 
     protected <T> T bean(String componentName) {
         return muleContext.getRegistry().get(componentName);
+    }
+
+    protected <T> T bean(Class<T> type) {
+        try {
+            return muleContext.getRegistry().lookupObject(type);
+        } catch (RegistrationException e) {
+            throw new GreenbirdTestException(e);
+        }
     }
 
     protected int getMessageRequestTimeout() {

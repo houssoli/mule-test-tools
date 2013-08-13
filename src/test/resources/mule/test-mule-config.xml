@@ -29,6 +29,9 @@
         <ctx:component-scan base-package="com.greenbird"/>
     </s:beans>
 
+    <s:bean name="duplicate1" class="com.greenbird.test.mule.DuplicateTestSpringComponent"/>
+    <s:bean name="duplicate2" class="com.greenbird.test.mule.DuplicateTestSpringComponent"/>    
+    
     <flow name="TestFlow">
         <inbound-endpoint address="vm://test/in"/>
         <outbound-endpoint address="vm://test/out"/>
