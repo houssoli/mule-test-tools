@@ -61,12 +61,12 @@ MuleEvent responseEventFromDirectFlowCall = flow("testFlow").process(event("Test
 
 dispatch("vm://test-queue", load("/large-payload.xml"));
 
-MuleMessage messageFromQueue = request("vm\://test-queue");
+MuleMessage messageFromQueue = request("vm://test-queue");
 ```
 
 ## History
 - [1.0.0]: Initial release.
-- [1.1.0-SNAPSHOT]: Moved non-mule specific utilities in this project to the [greenbird-test-tools] project. Added support for synchronous sending. 
+- [1.1.0-SNAPSHOT]: Moved non-mule specific utilities in this project to the [greenbird-test-tools] project. Added support for synchronous sending and looking up beans by type.
 
 [1.0.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=2&state=closed
 [1.1.0-SNAPSHOT]:       https://github.com/greenbird/mule-test-tools/issues?milestone=1&state=closed
