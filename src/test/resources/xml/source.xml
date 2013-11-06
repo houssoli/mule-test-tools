@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eksporterFravaer xmlns:x="http://test.x.com/schema/x/v1" xmlns:y="http://test.y.com/schema/y/v2">
+    <y:KontekstInformasjon>
+        <y:ApplikasjonId>RK</y:ApplikasjonId>
+        <y:GUID>eafda5ca-008e-4487-b60f-31088b9c7466</y:GUID>
+    </y:KontekstInformasjon>
+    <x:Fravaer>
+        <x:BilagsId>31</x:BilagsId>
+        <x:RessursId>17129028823</x:RessursId>
+        <x:StillingsId>1</x:StillingsId>
+        <x:FirmaKode>RK</x:FirmaKode>
+        <x:KostnadsSted>46040</x:KostnadsSted>
+        <x:FravaerKode>2310</x:FravaerKode>
+        <x:Prosent>56.67</x:Prosent>
+        <x:FraDatoTid>2013-11-05T18:00:00</x:FraDatoTid>
+        <x:TilDatoTid>2013-11-05T22:15:00</x:TilDatoTid>
+        <x:AntallTimer>4.25</x:AntallTimer>
+        <x:AntallDager>1</x:AntallDager>
+        <x:PosteringsDato>2013-11-05</x:PosteringsDato>
+        <x:OppdateringKode>I</x:OppdateringKode>
+    </x:Fravaer>
+</eksporterFravaer>

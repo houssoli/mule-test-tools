@@ -67,9 +67,11 @@ MuleMessage messageFromQueue = request("vm://test-queue");
 ## History
 - [1.0.0]: Initial release.
 - [1.1.0]: Moved non-mule specific utilities in this project to the [greenbird-test-tools] project. Added support for synchronous sending and looking up beans by type.
+- [1.2.0-SNAPSHOT]: Added utility for XSLT 2.0 testing.
 
 [1.0.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=2&state=closed
 [1.1.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=1&state=closed
+[1.2.0-SNAPSHOT]:       https://github.com/greenbird/mule-test-tools/issues?milestone=3&state=open
 [Apache 2.0]:           http://www.apache.org/licenses/LICENSE-2.0.html
 [build-badge]:          https://build.greenbird.com/job/mule-test-tools/badge/icon
 [build-link]:           https://build.greenbird.com/job/mule-test-tools/
