@@ -4,6 +4,8 @@
                 xmlns:a="http://test.a.com/schema/a/v1"
                 xmlns:b="http://test.b.com/schema/b/v2"                
         >
+    <xsl:param name="testParam"/>
+    
     <xsl:template match="/eksporterFravaer">
         <a:ABWAbsenceRecord>
 
@@ -21,7 +23,7 @@
                     <a:AbsSeq>0</a:AbsSeq>
                     <a:CalendarFlag>0</a:CalendarFlag>
                     <a:DayType/>
-                    <a:Description/>
+                    <a:Description><xsl:value-of select="$testParam"/></a:Description>
                     <a:Dim1><xsl:value-of select="x:KostnadsSted"/></a:Dim1>
                     <a:EndDate><xsl:value-of select="current-date()"/></a:EndDate>
                     <a:Percentage><xsl:value-of select="x:Prosent"/></a:Percentage>
