@@ -25,7 +25,7 @@ Example dependency config:
 <dependency>
     <groupId>com.greenbird.mule</groupId>
     <artifactId>greenbird-mule-test-tools</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -64,20 +64,37 @@ dispatch("vm://test-queue", load("/large-payload.xml"));
 MuleMessage messageFromQueue = request("vm://test-queue");
 ```
 
+The library also includes a utility for JUnit testing of XSLT stylesheets using the Mule XSLT 2.0 transformer: `XmlTransformationTestUtil`.
+It enables simple transformation execution and result validation using the `XPathRoot` XML querying util from [greenbird-core].
+
+Usage example:
+```java
+XPathRoot abwRoot = transform("/xml/source.xml")
+        .withNamespace("a", "http://test.a.com/schema/a/v1")
+        .withNamespace("b", "http://test.b.com/schema/b/v2")
+        .withParameter("testParam", PARAM_VALUE)
+        .usingStylesheet("/xsl/stylesheet.xsl")
+        .rootFrom("a:ABWAbsenceRecord");
+verifyMissingNode(abwRoot, "a:DateFrom");
+assertThat(abwRoot.value("a:Description"), is("testValue"));
+...
+```
+
 ## History
-- [1.0.0]: Initial release.
+- [1.2.0]: Added utility for XSLT 2.0 testing.
 - [1.1.0]: Moved non-mule specific utilities in this project to the [greenbird-test-tools] project. Added support for synchronous sending and looking up beans by type.
-- [1.2.0-SNAPSHOT]: Added utility for XSLT 2.0 testing.
+- [1.0.0]: Initial release.
 
 [1.0.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=2&state=closed
 [1.1.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=1&state=closed
-[1.2.0-SNAPSHOT]:       https://github.com/greenbird/mule-test-tools/issues?milestone=3&state=open
+[1.2.0]:                https://github.com/greenbird/mule-test-tools/issues?milestone=3&state=closed
 [Apache 2.0]:           http://www.apache.org/licenses/LICENSE-2.0.html
 [build-badge]:          https://build.greenbird.com/job/mule-test-tools/badge/icon
 [build-link]:           https://build.greenbird.com/job/mule-test-tools/
 [DSL]:                  http://en.wikipedia.org/wiki/Domain-specific_language
 [functional test case]: http://www.mulesoft.org/documentation/display/current/Functional+Testing
 [greenbird]:            http://greenbird.com/
+[greenbird-core]:       https://github.com/greenbird/greenbird-core/
 [issue-tracker]:        https://github.com/greenbird/mule-test-tools/issues
 [download]:             http://search.maven.org/#search|ga|1|greenbird-mule-test-tools
 [greenbird-test-tools]: https://github.com/greenbird/greenbird-test-tools

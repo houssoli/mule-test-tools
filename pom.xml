@@ -26,7 +26,7 @@
     </parent>
 
 
-    <name>Greenbird Mule test utility library</name>
+    <name>greenbird Mule test utility library</name>
     <description>Utility that simplifies testing of Mule applications.</description>
     <url>https://github.com/greenbird/mule-test-tools</url>
 
