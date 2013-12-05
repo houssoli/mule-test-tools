@@ -75,6 +75,7 @@ XPathRoot abwRoot = transform("/xml/source.xml")
         .withParameter("testParam", PARAM_VALUE)
         .usingStylesheet("/xsl/stylesheet.xsl")
         .rootFrom("a:ABWAbsenceRecord");
+
 verifyMissingNode(abwRoot, "a:DateFrom");
 assertThat(abwRoot.value("a:Description"), is("testValue"));
 ...
